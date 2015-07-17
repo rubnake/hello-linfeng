@@ -1,0 +1,9 @@
+keytool -genkey -alias mysocket -keyalg RSA -keystore mysocket.jks
+
+
+--
+java -Djavax.net.ssl.keyStore=mysocket.jks -Djavax.net.ssl.keyStorePassword=mysocket com.googlecode.garbagecan.test.socket.ssl.MyServer
+
+--
+java -Djavax.net.ssl.trustStore=mysocket.jks  -Djavax.net.ssl.trustStorePassword=mysocket com.googlecode.garbagecan.test.socket.ssl.MyClient
+
